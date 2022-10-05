@@ -18,7 +18,41 @@
     <div class="btn-container">
         <button class="btn">Add Book</button>
     </div>
-    <div class="container">
+    <div class="container"></div>
+
+    <div class="modal">
+        <div class="modal-container">
+            <h2>Add a new Book</h2>
+            <form action="" method="post">
+                <fieldset>
+                    <label for="author">Author:</label>
+                    <input type="text" id="author">
+                </fieldset>
+
+                <fieldset>
+                    <label for="title">Title: </label>
+                    <input type="text" id="title">
+                </fieldset>
+
+                <fieldset>
+                    <label for="numPages">Pages:</label>
+                    <input type="number" id="numPages">
+                </fieldset>
+                <fieldset>
+                    <label for="isRead">Read Status: </label>
+                    <input type="radio" id ="read" name="status">
+                    <label for="read">Read</label>
+                    <input type="radio" id ="not-read" name="status">
+                    <label for="not-read">Not Read</label>
+                </fieldset>
+
+            </form>
+            <div class="buttons-container">
+                <button class = "cancel-btn">Cancel</button>
+                <button class = "add-btn">Add Book</button>
+            </div>
+
+        </div>
     </div>
 </body>
 </html>

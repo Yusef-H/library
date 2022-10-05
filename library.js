@@ -45,3 +45,16 @@ addBookToLibrary(book);
 addBookToLibrary(book);
 addBookToLibrary(book);
 displayLibrary();
+
+const modal = document.querySelector('.modal');
+const addBookButton = document.querySelector('.btn');
+const modalButton = document.querySelector('.modal button');
+const cancelButton = document.querySelector('.cancel-btn');
+addBookButton.addEventListener('click', () => {
+    modal.classList.add('visible');
+})
+cancelButton.addEventListener('click', () => {
+    modal.classList.remove('visible');
+    console.log('hi');
+})
+
