@@ -11,8 +11,23 @@ body{
     justify-content: center;
     align-items: center;
     color: black;
-    font-size: max(15px, 4vw);
+    font-size: clamp(15px, 4vw, 50px);
     font-family: 'Kaushan Script', cursive;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn{
+    width: 20vw;
+    height: 5vh;
+    font-family: 'Indie Flower', cursive;
+    font-size: clamp(15px, 3vw, 30px);
+    background-color: rgb(7, 250, 108);
+    border-radius: 8px;
 }
 
 .container{
@@ -33,6 +48,6 @@ body{
     justify-content: flex-start;
     font-family: 'Indie Flower', cursive;
     padding: 8px;
-    font-size: max(20px,2vw);
+    font-size: clamp(10px, 2vw, 25px);
 }
 
