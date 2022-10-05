@@ -3,6 +3,7 @@ html{
 }
 body{
     background-color: rgb(57, 247, 231);
+    padding: 50px;
 }
 
 .title{
@@ -16,5 +17,22 @@ body{
 
 .container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: center;
+    gap: 10px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 }
+
+.book-card{
+    border: 5px double rgb(0, 0, 0);
+    background-color: antiquewhite;
+    height: max(200px, 30vh);
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Indie Flower', cursive;
+    padding: 8px;
+    font-size: max(20px,2vw);
+}
+
