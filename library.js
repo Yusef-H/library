@@ -10,8 +10,6 @@ function Book(author, title, numPages, isRead){
 
 function addBookToLibrary(newBook){
     myLibrary.push(newBook);
-    //Save the book index as a data attribute
-    newBook.data = myLibrary.length - 1;
 }
 
 function displayLibrary(){
@@ -25,7 +23,7 @@ function displayBook(book){
 }
 
 function createBookCard(book){
-    const bookCard = document.createElement('div');
+    var bookCard = document.createElement('div');
     bookCard.classList.add('book-card');
     var contentString = "Author: " + book.author + "\n\n" + 
                            "Title : " + book.title + "\n\n" + 
@@ -33,6 +31,31 @@ function createBookCard(book){
                            "Status: " + ((book.isRead == true) ? "Read" : "Not Read");
     bookCard.innerHTML = contentString.replace(/\n/g, '<br>');
     
+    bookCard = addBookCardButtons(bookCard, book);
+
+    return bookCard;
+}
+
+function addBookCardButtons(bookCard, book){
+    const buttonsContainer = document.createElement('div');
+    const removeBook = document.createElement('button');
+    const toggleButton = document.createElement('button');
+
+    removeBook.textContent = "Remove Book";
+    toggleButton.textContent = "Toggle Status";
+    
+    buttonsContainer.classList.add('book-buttons-container');
+    toggleButton.classList.add('toggle-button');
+    removeBook.classList.add('remove-button');
+
+    removeBook.addEventListener('click', () => {
+        const bookContainer = document.querySelector('.container');
+        bookContainer.removeChild(bookCard);
+    })
+
+    buttonsContainer.appendChild(removeBook);
+    buttonsContainer.appendChild(toggleButton);
+    bookCard.appendChild(buttonsContainer);
 
     return bookCard;
 }
@@ -51,7 +74,6 @@ function createBookFromInput(){
     const title = document.getElementById('title').value;
     const numPages = document.getElementById('numPages').value;
     const isRead = document.getElementById('read').checked ? 'Read' : 'Not Read'; 
-    console.log('hi');
     const newBook = new Book(author, title, numPages, isRead);
     clearModal();
     return newBook;

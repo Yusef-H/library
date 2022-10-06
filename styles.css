@@ -45,10 +45,27 @@ body{
 
     display: flex;
     justify-content: flex-start;
+    flex-direction: column;
     font-family: 'Indie Flower', cursive;
     padding: 8px;
     font-size: clamp(20px, 2vw, 25px);
 }
+
+.book-buttons-container{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+}
+.book-buttons-container > *{
+    font-weight: bold;
+    font-family: 'Indie Flower', cursive;
+    font-size: clamp(15px, 2vw, 25px);
+    padding: 10px;
+    background-color: rgb(141, 28, 28);
+    color: white;
+    border-radius: 8px;
+}
+
 .modal{
     width: 100vw;
     height: 100vh;
