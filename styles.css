@@ -1,5 +1,4 @@
 html{
-
 }
 body{
     background-color: rgb(57, 247, 231);
@@ -48,7 +47,7 @@ body{
     justify-content: flex-start;
     font-family: 'Indie Flower', cursive;
     padding: 8px;
-    font-size: clamp(10px, 2vw, 25px);
+    font-size: clamp(20px, 2vw, 25px);
 }
 .modal{
     width: 100vw;
@@ -73,7 +72,7 @@ body{
     font-size: clamp(30px, 3vw, 40px);
     background-color: white;
     width: max(40vw,400px);
-    height: max(50vh, 400px);
+    height: max(60vh, 400px);
     padding: 10px;
     border-radius: 8px;
     display: flex;
@@ -88,13 +87,25 @@ body{
 form{
     font-family: 'Indie Flower', cursive;
     font-size: clamp(15px, 1vw, 20px);
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 form > fieldset{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 6vh;
+}
+fieldset > input{
+    margin-left: 10px;
+    height: clamp(10px, 2vh, 20px);
 }
 
 .buttons-container{
+    align-self: center;
+
     display: flex;
 
     padding: 10px;
@@ -102,7 +113,7 @@ form > fieldset{
     justify-content: space-between;
 }
 
-.buttons-container > button{
+.buttons-container > *{
     font-weight: bold;
     font-family: 'Indie Flower', cursive;
     font-size: clamp(15px, 2vw, 25px);

@@ -42,19 +42,46 @@ function createBookCard(book){
 const book = new Book("Yusef", "Marhaba", "22", "True");
 addBookToLibrary(book);
 addBookToLibrary(book);
-addBookToLibrary(book);
-addBookToLibrary(book);
+handleModal();
 displayLibrary();
 
-const modal = document.querySelector('.modal');
-const addBookButton = document.querySelector('.btn');
-const modalButton = document.querySelector('.modal button');
-const cancelButton = document.querySelector('.cancel-btn');
-addBookButton.addEventListener('click', () => {
-    modal.classList.add('visible');
-})
-cancelButton.addEventListener('click', () => {
-    modal.classList.remove('visible');
+
+function createBookFromInput(){
+    const author = document.getElementById('author').value;
+    const title = document.getElementById('title').value;
+    const numPages = document.getElementById('numPages').value;
+    const isRead = document.getElementById('read').checked ? 'Read' : 'Not Read'; 
     console.log('hi');
-})
+    const newBook = new Book(author, title, numPages, isRead);
+    clearModal();
+    return newBook;
+}
+
+function clearModal(){
+    document.getElementById('author').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('numPages').value = '';
+    document.getElementById('read').checked = false; 
+    document.getElementById('not-read').checked = false; 
+}
+
+function handleModal(){
+    const modal = document.querySelector('.modal');
+    const form = document.querySelector('form');
+    const addBookButton = document.querySelector('.btn');
+    const cancelButton = document.querySelector('.cancel-btn');
+    addBookButton.addEventListener('click', () => {
+        modal.classList.add('visible');
+    })
+    cancelButton.addEventListener('click', () => {
+        modal.classList.remove('visible');
+    })
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const newBook = createBookFromInput();
+        addBookToLibrary(newBook);
+        displayBook(newBook);
+        modal.classList.remove('visible');
+    })
+}
 
