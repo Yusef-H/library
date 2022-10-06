@@ -22,7 +22,6 @@ body{
 
 .btn{
     width: 20vw;
-    height: 5vh;
     font-family: 'Indie Flower', cursive;
     font-size: clamp(15px, 3vw, 30px);
     background-color: rgb(7, 250, 108);
@@ -40,7 +39,6 @@ body{
 .book-card{
     border: 5px double rgb(0, 0, 0);
     background-color: antiquewhite;
-    height: max(200px, 30vh);
     border-radius: 8px;
 
     display: flex;
@@ -89,9 +87,9 @@ body{
     font-size: clamp(30px, 3vw, 40px);
     background-color: white;
     width: max(40vw,400px);
-    height: max(60vh, 400px);
     padding: 10px;
     border-radius: 8px;
+    border: 10px dashed black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,16 +102,16 @@ body{
 form{
     font-family: 'Indie Flower', cursive;
     font-size: clamp(15px, 1vw, 20px);
-    height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 5px;
 }
 form > fieldset{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 6vh;
+    height: 25px;
 }
 fieldset > input{
     margin-left: 10px;
