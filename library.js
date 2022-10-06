@@ -8,6 +8,10 @@ function Book(author, title, numPages, isRead){
     this.isRead = isRead;
 }
 
+Book.prototype.toggle = function() {
+    this.isRead = this.isRead === 'Read' ? 'Not Read' : 'Read';
+}
+
 function addBookToLibrary(newBook){
     myLibrary.push(newBook);
 }
@@ -47,26 +51,30 @@ function addBookCardButtons(bookCard, book){
     buttonsContainer.classList.add('book-buttons-container');
     toggleButton.classList.add('toggle-button');
     removeBook.classList.add('remove-button');
+    
+
+    buttonsContainer.appendChild(removeBook);
+    buttonsContainer.appendChild(toggleButton);
+    bookCard.appendChild(buttonsContainer);
 
     removeBook.addEventListener('click', () => {
         const bookContainer = document.querySelector('.container');
         bookContainer.removeChild(bookCard);
     })
 
-    buttonsContainer.appendChild(removeBook);
-    buttonsContainer.appendChild(toggleButton);
-    bookCard.appendChild(buttonsContainer);
+    toggleButton.addEventListener('click', () => {
+        book.toggle();
+        var myString = bookCard.innerHTML;
+        var insertIdx = myString.indexOf('Status:');
+        insertIdx += 8;
+        myString = myString.slice(0, insertIdx) + book.isRead;
+        const buttonstemp = bookCard.lastChild;
+        bookCard.innerHTML = myString.replace(/\n/g, '<br>');
+        bookCard.appendChild(buttonstemp);
+    })
 
     return bookCard;
 }
-
-
-
-const book = new Book("Yusef", "Marhaba", "22", "True");
-addBookToLibrary(book);
-addBookToLibrary(book);
-handleModal();
-displayLibrary();
 
 
 function createBookFromInput(){
@@ -107,3 +115,8 @@ function handleModal(){
     })
 }
 
+const book = new Book("Yusef", "Marhaba", "22", "True");
+addBookToLibrary(book);
+addBookToLibrary(book);
+handleModal();
+displayLibrary();
