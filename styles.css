@@ -30,11 +30,10 @@ body{
 }
 
 .container{
-    display: grid;
-    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 10px;
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 }
 
 .book-card{
@@ -44,6 +43,7 @@ body{
     overflow-wrap: break-word;
     min-width: 200px;
     max-width: 400px;
+    height: fit-content;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -53,9 +53,13 @@ body{
 }
 
 .book-buttons-container{
+    
     display: flex;
-    margin-top: 20px;
+    margin-top: min(20px, auto);
+    padding: 10px;
+    gap:5px;
     justify-content: space-around;
+
 }
 .book-buttons-container > *{
     font-weight: bold;
